@@ -35,8 +35,8 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Prasanna — Creator · Dancer · Singer",
-  description: "Portfolio of Prasanna — content creator, Instagram influencer, dancer, singer, brand collaborator.",
+  title: "Prasanna-Solutions",
+  description: "Prasanna-Solutions — content creator, dancer, singer, brand collaborator. Digital marketing, brand promotion, photo and video shoots.",
 };
 
 export default function RootLayout({ children }) {

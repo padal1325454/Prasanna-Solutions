@@ -20,6 +20,17 @@
   overflow: hidden;
 }
 
+/* On mobile/small tablet: let sections grow taller than viewport
+   so long content (services list, footer press list) is fully visible. */
+@media (max-width: 900px) {
+  .snap {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+    scroll-snap-stop: normal;
+  }
+}
+
 /* Right-edge section indicator */
 .dots {
   position: fixed;

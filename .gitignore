@@ -1,6 +1,8 @@
 node_modules
 .next
 .DS_Store
+**/.DS_Store
+.claude/
 *.log
 
 # Source assets at project root — the deployed copies live in public/

@@ -426,15 +426,24 @@
 }
 
 @media (max-width: 900px) {
+  /* Let the section grow naturally — no inner clipping */
+  .section {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+    padding: 4.5rem 1.5rem 2.5rem;
+  }
+  .pubsWrap { grid-template-columns: 1fr; gap: 2rem; }
   .pubList { grid-template-columns: 1fr; gap: 0.75rem; }
 }
 
 @media (max-width: 767px) {
-  .section { padding: 4rem 1.5rem 2rem; }
-  .pubsWrap { grid-template-columns: 1fr; gap: 2rem; }
+  .section { padding: 4rem 1.25rem 2rem; }
   .pub { padding: 1rem 1.1rem 0.9rem 1.25rem; }
   .pub::after { font-size: 4.5rem; }
   .pubTitle { font-size: 0.95rem; }
   .pubDesc { font-size: 0.78rem; }
+  .cta { font-size: clamp(1.65rem, 7vw, 2.25rem); }
+  .contact { padding: 1.5rem; }
   .bottom { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
 }

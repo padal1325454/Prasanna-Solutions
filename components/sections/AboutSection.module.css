@@ -217,20 +217,19 @@
   50%,100% { opacity: 0; }
 }
 
-/* ── Mobile + small tablet — everything must fit one viewport ── */
+/* ── Mobile + small tablet — single column, allowed to grow ── */
 @media (max-width: 900px) {
   .section {
-    /* Centered single column — image + content packed together, vertically centred */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     grid-template-columns: none;
     padding: 5rem 1.25rem 2rem;
     gap: 1.5rem;
-    height: 100vh;
+    height: auto;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: visible;
   }
 
   /* Photo column — fixed-height highlight card */
