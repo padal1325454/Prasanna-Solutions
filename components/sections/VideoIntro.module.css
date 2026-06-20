@@ -1,0 +1,265 @@
+.section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+}
+
+/* ── Video ─────────────────────────────────────────────── */
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Show by default; class below kept for backward compat */
+  opacity: 1;
+  transition: opacity 0.9s ease-out;
+}
+
+.videoReady {
+  opacity: 1;
+}
+
+/* Left-side dark gradient so the bottom-left text reads cleanly */
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(11, 11, 15, 0.7) 0%, rgba(11, 11, 15, 0.35) 25%, rgba(11, 11, 15, 0) 55%),
+    linear-gradient(0deg,  rgba(11, 11, 15, 0.65) 0%, rgba(11, 11, 15, 0) 45%);
+}
+
+/* ── Bottom-left content (always visible) ─────────────── */
+.content {
+  position: absolute;
+  left: 3.5rem;
+  bottom: 4rem;
+  z-index: 2;
+  max-width: min(640px, 60vw);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #fafaf9;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(250, 250, 249, 0.65);
+  margin: 0 0 0.5rem;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.role {
+  margin: 0.85rem 0 0;
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 0.85vw, 0.85rem);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.roleSep {
+  opacity: 0.5;
+  color: rgba(250, 250, 249, 0.5);
+}
+
+/* ── Tap for Sound button — icon-only, right side, below the navbar ─── */
+.soundCTA {
+  position: absolute;
+  top: 5.5rem;
+  right: 2.5rem;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 46, 147, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fafaf9;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  animation: ctaIn 0.55s 0.3s both ease-out;
+}
+
+.soundCTA::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0.3;
+  filter: blur(18px);
+  z-index: -1;
+  animation: glowPulse 2.4s ease-in-out infinite;
+}
+
+.soundCTA:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 46, 147, 0.5);
+}
+
+@keyframes ctaIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+  0%,100% { transform: scale(1);    opacity: 0.35; }
+  50%     { transform: scale(1.12); opacity: 0.55; }
+}
+
+
+/* ── Mute toggle — just an icon, right side, below the navbar ── */
+.muteToggle {
+  position: absolute;
+  top: 5.5rem;
+  right: 2.5rem;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(250, 250, 249, 0.3);
+  background: rgba(11, 11, 15, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fafaf9;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.muteToggle:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+
+.muteToggle:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── Replay overlay (after video ends) ────────────────── */
+.replay {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 11, 15, 0.5);
+  cursor: pointer;
+  border: none;
+  color: #fafaf9;
+  font-family: var(--font-baloo);
+  transition: background 0.25s ease;
+}
+
+.replay:hover { background: rgba(11, 11, 15, 0.65); }
+
+.replayInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  pointer-events: none;
+}
+
+.replayIcon {
+  width: 84px;
+  height: 84px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.replay:hover .replayIcon {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.replayLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(250, 250, 249, 0.9);
+}
+
+/* ── Scroll cue ───────────────────────────────────────── */
+.scrollCue {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(250, 250, 249, 0.55);
+  pointer-events: none;
+}
+
+.scrollLine {
+  width: 2.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(250, 250, 249, 0.5), transparent);
+}
+
+@media (max-width: 767px) {
+  .content {
+    left: 1.5rem;
+    bottom: 3rem;
+    max-width: 85vw;
+  }
+  .soundCTA,
+  .muteToggle {
+    top: auto;
+    bottom: 5.5rem;
+    right: 1.5rem;
+    padding: 0.6rem 1rem 0.6rem 0.65rem;
+    font-size: 0.6rem;
+  }
+}

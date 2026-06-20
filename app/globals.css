@@ -1,0 +1,68 @@
+/* ─── Brand tokens — Prasanna "Premium Glam" ─────────────── */
+:root {
+  /* Hero gradient — pink → magenta → purple */
+  --hero-start: #ffd4e6;
+  --hero-mid:   #d946ef;
+  --hero-end:   #6d28d9;
+
+  /* Accent */
+  --accent:       #ff2e93;
+  --accent-hover: #e51c7d;
+
+  /* Text */
+  --text-primary: #0b0b0f;
+  --text-muted:   #3b1d4a;
+  --text-on-dark: #fafaf9;
+
+  /* Surfaces */
+  --surface-white:    #ffffff;
+  --surface-black:    #0a0a0a;
+  --surface-lavender: #fdf4ff;
+  --ink:              #0b0b0f;
+
+  /* Type scale */
+  --hero-name-size: clamp(4.5rem, 13vw, 12rem);
+  --text-body:      clamp(0.9rem, 1.2vw, 1.05rem);
+  --text-small:     0.72rem;
+}
+
+/* ─── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ink);
+  color: var(--text-on-dark);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide the OS cursor on fine-pointer devices so only the custom one shows */
+@media (pointer: fine) {
+  html, body, * { cursor: none !important; }
+}
+
+/* ─── Utility classes ───────────────────────────────────── */
+.font-display { font-family: var(--font-display), serif; }
+.font-script  { font-family: var(--font-script), cursive; }
+.font-mono    { font-family: var(--font-mono), monospace; }
+
+.text-glam {
+  background: linear-gradient(110deg, #ff2e93 0%, #d946ef 45%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-chrome {
+  background: linear-gradient(180deg, #ffffff 0%, #d4d4d8 25%, #71717a 50%, #d4d4d8 75%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (max-width: 767px) {
+  :root { --hero-name-size: clamp(3rem, 10vw, 5rem); }
+}

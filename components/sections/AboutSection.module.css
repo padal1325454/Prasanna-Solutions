@@ -1,0 +1,319 @@
+.section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fdf4ff 0%, #ffe4f1 45%, #e9d5ff 100%);
+  color: var(--text-primary);
+  display: grid;
+  grid-template-columns: 32% 1fr;
+  gap: 2.5rem;
+  padding: 6rem 2.5rem 2.5rem 2.5rem;
+  overflow: hidden;
+}
+
+/* ── Left: portrait placeholder + signature + socials ── */
+.photoCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  overflow: visible;
+}
+
+.photoWrap {
+  position: relative;
+  width: 100%;
+  max-width: min(100%, calc(72vh * 1023 / 1537));
+  margin: 0 auto;
+}
+
+/* Frame matches the image's true aspect ratio (1023:1537 ≈ 2:3)
+   so the picture fills edge-to-edge with NO cropping and NO empty bars. */
+.photoFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1023 / 1537;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1a0a2e;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 18px 50px rgba(124, 58, 237, 0.3);
+}
+
+.photoImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Original signature design — pink Dancing Script, big, pokes off the side, tilted.
+   Stacks two layers so the looping write/erase animation has a faint ghost underneath. */
+.signatureBlock {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  pointer-events: none;
+  z-index: 4;
+  display: grid;
+  transform: rotate(-10deg);
+  transform-origin: right bottom;
+  font-family: var(--font-script);
+  color: #fff;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  text-shadow:
+    0 2px 12px rgba(255, 46, 147, 0.8),
+    0 0 28px rgba(255, 46, 147, 0.5),
+    0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+.signatureGhost,
+.signature {
+  grid-area: 1 / 1;
+  display: block;
+}
+
+/* Faint white ghost — keeps the unwritten part visible against the bright glow */
+.signatureGhost {
+  color: rgba(255, 255, 255, 0.25);
+  text-shadow: none;
+}
+
+/* Bright pink layer — clip-path sweep reveals letters left→right and erases the same way */
+.signature {
+  clip-path: inset(0 100% 0 0);
+  animation: signWrite 4.2s ease-in-out infinite;
+}
+
+@keyframes signWrite {
+  0%   { clip-path: inset(0 100% 0 0); }      /* start: hidden, will appear from P */
+  55%  { clip-path: inset(0 0 0 0);     }     /* fully written through to A */
+  75%  { clip-path: inset(0 0 0 0);     }     /* hold so the user can read it */
+  100% { clip-path: inset(0 0 0 100%);  }     /* erase L→R, then loops back */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signature { animation: none; clip-path: inset(0 0 0 0); }
+}
+
+.socials {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  background: rgba(11, 11, 15, 0.06);
+  border: 1px solid rgba(11, 11, 15, 0.12);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.socialLink:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* ── Right: content ── */
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 720px;
+}
+
+.whoLabel {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  letter-spacing: 0.45em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+/* Infinite marquee */
+.marqueeWrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+.marqueeTrack {
+  display: inline-flex;
+  white-space: nowrap;
+  gap: 1.5rem;
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.marqueeItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.marqueeDot { color: var(--accent); }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Typewriter bio */
+.bioWrap {
+  position: relative;
+  max-width: 620px;
+}
+
+.bio {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  line-height: 1.55;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.typed   { opacity: 1; }
+.untyped { opacity: 0.18; }
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--accent);
+  vertical-align: -0.15em;
+  margin-left: 2px;
+  animation: blink 0.95s steps(2) infinite;
+}
+
+@keyframes blink {
+  0%,49% { opacity: 1; }
+  50%,100% { opacity: 0; }
+}
+
+/* ── Mobile + small tablet — everything must fit one viewport ── */
+@media (max-width: 900px) {
+  .section {
+    /* Centered single column — image + content packed together, vertically centred */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: none;
+    padding: 5rem 1.25rem 2rem;
+    gap: 1.5rem;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Photo column — fixed-height highlight card */
+  .photoCol {
+    align-items: center;
+    overflow: visible;
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .photoWrap {
+    width: auto;
+    height: 42vh;
+    max-height: 380px;
+    aspect-ratio: 1023 / 1537;
+    margin: 0 auto;
+  }
+
+  /* Pink → magenta → purple neon highlight */
+  .photoFrame {
+    border-radius: 14px;
+    box-shadow:
+      0 0 0 1.5px rgba(255, 46, 147, 0.85),
+      0 0 18px rgba(255, 46, 147, 0.55),
+      0 0 48px rgba(217, 70, 239, 0.45),
+      0 0 110px rgba(124, 58, 237, 0.35),
+      0 14px 36px rgba(0, 0, 0, 0.3);
+    animation: aboutGlow 3.2s ease-in-out infinite;
+  }
+
+  /* Signature scales with photo width */
+  .signatureBlock {
+    font-size: clamp(1.6rem, 9vh, 2.75rem);
+    right: -0.75rem;
+    bottom: -0.25rem;
+  }
+
+  /* Content sits right under the image — no big gap */
+  .content {
+    max-width: 100%;
+    width: 100%;
+    flex: 0 0 auto;
+    text-align: center;
+    gap: 0.85rem;
+    align-items: center;
+  }
+
+  .whoLabel { font-size: 0.85rem; margin: 0; }
+
+  .marqueeItem { font-size: clamp(1rem, 4.4vw, 1.5rem); }
+
+  .bioWrap { overflow: hidden; max-width: 90%; margin: 0 auto; }
+  .bio {
+    font-size: clamp(0.82rem, 3.1vw, 0.98rem);
+    line-height: 1.5;
+    text-align: center;
+  }
+}
+
+@keyframes aboutGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1.5px rgba(255, 46, 147, 0.85),
+      0 0 18px rgba(255, 46, 147, 0.55),
+      0 0 48px rgba(217, 70, 239, 0.45),
+      0 0 110px rgba(124, 58, 237, 0.35),
+      0 20px 50px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1.5px rgba(255, 46, 147, 1),
+      0 0 26px rgba(255, 46, 147, 0.8),
+      0 0 70px rgba(217, 70, 239, 0.65),
+      0 0 150px rgba(124, 58, 237, 0.5),
+      0 20px 50px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 4.25rem 1rem 1.25rem;
+    gap: 1rem;
+  }
+  .photoWrap { height: min(34vh, 260px); }
+  .signatureBlock { font-size: clamp(1.5rem, 8vh, 2.5rem); right: -0.5rem; }
+}

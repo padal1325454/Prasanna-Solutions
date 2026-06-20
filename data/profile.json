@@ -1,0 +1,227 @@
+{
+  "name": {
+    "first": "Prasanna",
+    "last": "",
+    "full": "Prasanna"
+  },
+  "email": "panasalaprasanna@gmail.com",
+  "phone": "+1 469 288 1258",
+  "address": "3938 Faulkner Ave, Aubrey, TX 76227, USA",
+  "roleShort": "Creator",
+  "roleDetailed": "Creator · Dancer · Singer · Brand Collaborator",
+  "tagline": "Storytelling through rhythm, voice, and lens — building brands and culture across stages and screens.",
+  "freelanceNote": "Open to brand campaigns, performance bookings, and collaborations with directors and labels.",
+  "availableLabel": "Available for collaborations",
+  "available": true,
+  "location": {
+    "based": "Hyderabad",
+    "availability": "India / Worldwide"
+  },
+  "bio": "Prasanna is a multidisciplinary performer and content creator. She moves between dance floors, recording booths, and her camera — turning rhythm, voice, and personality into stories that move millions. From viral reels to live sets to brand campaigns, she builds work that people remember and share.",
+  "skills": [
+    "Content Creator",
+    "Instagram Reels",
+    "Dancer",
+    "Choreography",
+    "Singer",
+    "Live Performance",
+    "Stage Presence",
+    "Brand Campaigns",
+    "Influencer Marketing",
+    "Storytelling",
+    "Direction",
+    "Editing",
+    "Modelling",
+    "Hosting"
+  ],
+  "services": [
+    {
+      "id": 1,
+      "title": "Digital Marketing",
+      "tagline": "Reach the right audience",
+      "type": "Strategy · Paid · Organic",
+      "desc": "End-to-end social strategy — content calendars, paid campaigns, growth experiments, and analytics that move the needle.",
+      "bullets": [
+        "Audience research, positioning, and channel-specific content strategy.",
+        "Paid Meta & Google campaigns with creative testing and weekly optimisation.",
+        "Organic growth playbooks for Instagram, YouTube Shorts, and emerging platforms.",
+        "Monthly reporting with clear KPIs, learnings, and next-step recommendations."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Brand Promotion",
+      "tagline": "Be unmissable",
+      "type": "Influencer · Activation",
+      "desc": "Influencer collaborations, brand campaigns, and live activations that turn viewers into customers and customers into fans.",
+      "bullets": [
+        "Lead-talent and creative direction for brand films, reels, and OOH.",
+        "Influencer pods and creator collaborations matched to your brand.",
+        "Live Instagram takeovers, festive activations, and launch event hosting.",
+        "Performance reports — saves, clickthroughs, and conversion lift per asset."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Photo Shoots",
+      "tagline": "Stills that sell",
+      "type": "Editorial · Lookbook · Product",
+      "desc": "Studio and on-location photoshoots — editorial portraits, lookbooks, product flat-lays, and lifestyle stills built for the feed and beyond.",
+      "bullets": [
+        "Concept boards, location scouting, styling, and full creative direction.",
+        "Studio and outdoor shoots with hand-picked photographers and crew.",
+        "Editorial portraits, lookbooks, product stills, and behind-the-scenes.",
+        "Edited, colour-graded final assets in formats tuned for every channel."
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Video Shoots",
+      "tagline": "Stories that move",
+      "type": "Reels · Films · Music Videos",
+      "desc": "From short-form reels to brand films and music videos — full-cycle video production with a director who also performs on camera.",
+      "bullets": [
+        "Scripting, storyboarding, and choreography tailored to your brand voice.",
+        "Production with vetted DPs, lighting, sound, and styling teams.",
+        "Edit, colour, sound design, and platform-specific cutdowns.",
+        "Reels, brand films, music videos, and YouTube long-form."
+      ]
+    }
+  ],
+  "experiences": [
+    {
+      "id": 1,
+      "role": "Featured Performer",
+      "venue": "Sunburn Festival",
+      "type": "Stage",
+      "location": "Goa, India",
+      "period": "Dec 2025",
+      "desc": "Mainstage dance and vocal set blending choreography, live vocals, and original release for one of India's flagship music festivals.",
+      "bullets": [
+        "Featured set on the main festival stage with original choreography to a live mix.",
+        "Collaborated with the creative team on staging, costume, and lighting.",
+        "Closed with an original release, driving streams across Spotify and YouTube Music."
+      ]
+    },
+    {
+      "id": 2,
+      "role": "Lead Talent",
+      "venue": "Nykaa × Lakmé",
+      "type": "Brand Campaign",
+      "location": "Mumbai, India",
+      "period": "Sep–Nov 2025",
+      "desc": "Lead face and movement direction for the festive beauty campaign across digital and OOH.",
+      "bullets": [
+        "Anchored a multi-asset rollout: hero film, stills, BTS reels, and Instagram live.",
+        "Drove a 38% lift in reel saves and a 22% lift in product-page clickthroughs.",
+        "Partnered with brand creative on look development and a co-branded reel series."
+      ]
+    },
+    {
+      "id": 3,
+      "role": "Singer · Director",
+      "venue": "Velvet Night EP",
+      "type": "Music",
+      "location": "India",
+      "period": "Jun–Aug 2025",
+      "desc": "Independent four-track EP — songwriting, vocals, music video direction, and a three-city showcase tour.",
+      "bullets": [
+        "Wrote, recorded, and released four tracks across Spotify, Apple Music, YouTube Music.",
+        "Produced and starred in the lead single's music video.",
+        "Hit 500K+ streams in the first month with editorial pickup on Indie India playlists.",
+        "Sold out two of three rooms on the showcase tour."
+      ]
+    },
+    {
+      "id": 4,
+      "role": "Choreographer · Creator",
+      "venue": "@prasanna Weekly Reels",
+      "type": "Content Series",
+      "location": "Worldwide",
+      "period": "Jan 2024 — Present",
+      "desc": "Self-directed weekly choreography reels — concept, choreography, performance, edit, release.",
+      "bullets": [
+        "Grew the channel from 12K to 120K+ followers in under twelve months.",
+        "Three reels crossed one million views with notable creator and brand co-signs.",
+        "Opened a parallel YouTube long-form channel for performance vlogs and BTS."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Prasanna · Studio",
+      "subtitle": "Modelling Reel",
+      "type": "Featured",
+      "desc": "Studio set exploring movement, light, and silhouette — the signature aesthetic across the feed.",
+      "tech": ["Modelling", "Studio", "Direction", "Reels"],
+      "link": "https://instagram.com",
+      "video": "/video/reels/Prasanna_model.mp4"
+    },
+    {
+      "id": 2,
+      "title": "North Indian",
+      "subtitle": "Traditional Series",
+      "type": "Cultural",
+      "desc": "A celebration of North Indian style — heritage wear, expression, and rhythm woven into a single take.",
+      "tech": ["Traditional", "Performance", "Cinematic", "Reels"],
+      "link": "https://instagram.com",
+      "video": "/video/reels/NorthIndian.mp4"
+    },
+    {
+      "id": 3,
+      "title": "Vijji · Editorial",
+      "subtitle": "Modelling Collaboration",
+      "type": "Editorial",
+      "desc": "Editorial-style modelling shoot with sharp framing, bold colour, and a soundtrack-driven cut.",
+      "tech": ["Editorial", "Modelling", "Collaboration", "Reels"],
+      "link": "https://instagram.com",
+      "video": "/video/reels/Vijji_model.mp4"
+    }
+  ],
+  "publications": [
+    {
+      "id": 1,
+      "title": "Velvet Night — Lead Single",
+      "platform": "Spotify",
+      "year": "2025",
+      "link": "https://open.spotify.com",
+      "desc": "Self-written, self-produced lead single off the debut EP. Editorial pickup across Indie India and Fresh Finds playlists."
+    },
+    {
+      "id": 2,
+      "title": "Nykaa × Lakmé Festive Campaign",
+      "platform": "Brand Film",
+      "year": "2025",
+      "link": "https://www.nykaa.com",
+      "desc": "Lead talent and movement direction for the festive beauty campaign — multi-asset film, stills, and live takeover."
+    },
+    {
+      "id": 3,
+      "title": "Sunburn Mainstage Set",
+      "platform": "Live",
+      "year": "2025",
+      "link": "https://sunburn.in",
+      "desc": "Featured mainstage dance and vocal set with original choreography, custom staging, and a live closing release."
+    },
+    {
+      "id": 4,
+      "title": "@prasanna · Weekly Reels Series",
+      "platform": "Instagram",
+      "year": "Ongoing",
+      "link": "https://instagram.com",
+      "desc": "Self-directed weekly choreography reels — the engine behind the audience growth from 12K to 120K+ followers."
+    }
+  ],
+  "pills": ["Creator", "Dancer", "Singer", "Brand Collabs"],
+  "stats": [
+    { "value": "120K+", "label": "Followers" },
+    { "value": "85+",   "label": "Performances" },
+    { "value": "40+",   "label": "Brand Collabs" }
+  ],
+  "socials": [
+    { "label": "Instagram", "href": "https://instagram.com" },
+    { "label": "YouTube",   "href": "https://youtube.com" },
+    { "label": "Spotify",   "href": "https://open.spotify.com" }
+  ]
+}

@@ -1,0 +1,81 @@
+/* Hide on touch devices — there's no real cursor */
+@media (pointer: coarse) {
+  .ring, .dot, .glow { display: none !important; }
+}
+
+/* ── Outer ring ── */
+.ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1.5px solid var(--accent);
+  background: transparent;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s, width 0.25s ease, height 0.25s ease, border-color 0.2s ease;
+}
+
+.ringReady {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* When hovering an interactive element: ring disappears INSTANTLY (no fade) so it never overlaps a button */
+.ringHover {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0s, visibility 0s;
+}
+
+/* ── Soft pink glow halo behind the dot ── */
+.glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 46, 147, 0.5) 0%, rgba(255, 46, 147, 0) 70%);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.18s ease, visibility 0.18s ease;
+  filter: blur(2px);
+}
+
+.glowReady { opacity: 1; visibility: visible; }
+.glowHover { opacity: 0; visibility: hidden; transition: opacity 0s, visibility 0s; }
+
+/* ── Crisp center dot ── */
+.dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.18s ease, width 0.2s ease, height 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dotReady { opacity: 1; }
+
+/* Hover: dot grows so there's still a cue (ring & glow are hidden) */
+.dotHover {
+  width: 12px;
+  height: 12px;
+  box-shadow: 0 0 16px var(--accent);
+}

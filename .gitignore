@@ -1,0 +1,17 @@
+node_modules
+.next
+.DS_Store
+*.log
+
+# Source assets at project root — the deployed copies live in public/
+/*.MP4
+/*.mp4
+/*.PNG
+/*.png
+/*.jpg
+/*.jpeg
+!/public/**
+
+# Local env
+.env*.local
+.vercel
